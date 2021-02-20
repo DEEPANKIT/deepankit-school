@@ -4,6 +4,7 @@ const { mkdir_if_missing } = require("./utils");
 const { pdf_dir, md_dir } = require("../settings");
 
 var options = {
+    highlightCssPath : `${__dirname}/code.css`,
     cssPath : `${__dirname}/md.css`
 }
 
