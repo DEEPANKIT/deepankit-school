@@ -3,14 +3,18 @@ const { readdir } = require("fs");
 const { mkdir_if_missing } = require("./utils");
 const { pdf_dir, md_dir } = require("../settings");
 
+var options = {
+    cssPath : `${__dirname}/md.css`
+}
+
 mkdir_if_missing(pdf_dir, (_) => {
-  readdir(md_dir, (files) => {
-    console.log()
+  readdir(md_dir, (e, files) => {
+    if (e) throw e;
     files.forEach((file) => {
-      markdownpdf()
+      markdownpdf(options)
         .from(`${md_dir}/${file}`)
-        .to(`${md_dir}/${file.replace(".md", ".pdf")}`, function () {
-          console.log("Done");
+        .to(`${pdf_dir}/${file.replace(".md", ".pdf")}`, function () {
+          console.log(`Done ${file.replace('.md','')}`);
         });
     });
   });

@@ -10,7 +10,7 @@
   },
   "scripts": {
     "pdf": "node src/pdf",
-    "md" : "node src/md",
-    "make" : "yarn md && yarn pdf"
+    "md": "node src/md",
+    "make": "yarn md && yarn pdf"
   }
 }
