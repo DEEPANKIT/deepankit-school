@@ -16,4 +16,5 @@ exports.ques = {
   copy: "",
   decode:
     "Program to decode a string where a small part of the original string is given and the encoding variable lies between -20 and 100",
-};
+
+  };
