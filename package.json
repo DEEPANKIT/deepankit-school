@@ -1,0 +1,16 @@
+{
+  "name": "deepankit-school",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/DEEPANKIT/deepankit-school.git",
+  "author": "DEEPANKIT <deepankit.chopra2004@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "markdown-pdf": "^10.0.0"
+  },
+  "scripts": {
+    "pdf": "node src/pdf",
+    "md" : "node src/md",
+    "make" : "yarn md && yarn pdf"
+  }
+}
