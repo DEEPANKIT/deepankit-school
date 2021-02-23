@@ -11,7 +11,7 @@ function write_md(dir, out, ques) {
         file = file.replace(".java", "");
         writeFile(
           `${out}/${file}.md`,
-          `# ${file}\n\n${ques[file]}\n\n` +
+          `${!ques[file]?"":`## /\\*${ques[file]}\\*/\n\n`}` +
             "```java\n" +
             data.toString() +
             "\n```\n\n",

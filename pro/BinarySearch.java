@@ -1,9 +1,7 @@
 import java.util.*;
-import java.lang.*;
-import java.io.*;
 
 class BinarySearch {
-    public static void main(String[] args) throws java.lang.Exception {
+    public static void main(String[] args) throws Exception {
         Scanner sc = new Scanner(System.in);
         int x, y, l, t;
         System.out.println("Enter the number of elements in the array");

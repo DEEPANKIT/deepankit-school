@@ -1,9 +1,8 @@
-import java.lang.*;
 import java.io.*;
 
 class BracketVerification {
     private char a[];
-    private int tos;
+    private static int tos;
 
     public BracketVerification(int size) {
         a = new char[size];

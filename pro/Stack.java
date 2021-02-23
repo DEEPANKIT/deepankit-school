@@ -1,4 +1,4 @@
-import java.io.DataInputStream;
+import java.io.*;
 
 class Stack {
     private final int[] a;

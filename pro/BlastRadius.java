@@ -1,4 +1,4 @@
-import java.io.DataInputStream;
+import java.io.*;
 import java.util.StringTokenizer;
 
 class BlastRadius {

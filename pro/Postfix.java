@@ -1,4 +1,4 @@
-import java.io.DataInputStream;
+import java.io.*;
 
 class Postfix {
     public static void main(String[] args) throws java.lang.Exception {

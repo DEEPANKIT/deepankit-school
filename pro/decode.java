@@ -1,4 +1,4 @@
-import java.io.DataInputStream;
+import java.io.*;
 
 class decode {
     public static void main(String[] args) throws java.lang.Exception {

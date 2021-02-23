@@ -1,5 +1,5 @@
-import java.io.DataInputStream;
-import java.util.Scanner;
+import java.io.*;
+import java.util.*;
 
 class SudokuCheck {
     public static void main(String[] args) throws java.lang.Exception {
@@ -78,6 +78,8 @@ class SudokuCheck {
             System.out.println(S);
         else
             System.out.println("Valid");
+
+            sc.close();
 
     }
 }
