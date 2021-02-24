@@ -4,13 +4,14 @@
     padding: 0.5em;
     background: white;
     color: black;
-    font-weight: 600;
+    font-weight: 1000;
   }
   
   .hljs-comment,
   .hljs-quote,
   .hljs-variable {
     color:black;
+    font-weight: 800;
   }
   
   .hljs-keyword,
@@ -19,6 +20,7 @@
   .hljs-name,
   .hljs-tag {
     color: black;
+    font-weight: 800;
   }
   
   .hljs-string,
@@ -31,6 +33,7 @@
   .hljs-type,
   .hljs-addition {
     color: black;
+    font-weight: 800;
   }
   
   .hljs-deletion,
@@ -38,20 +41,24 @@
   .hljs-selector-pseudo,
   .hljs-meta {
     color: black;
+    font-weight: 800;
   }
   
   .hljs-doctag {
     color: black;
+    font-weight: 800;
   }
   
   .hljs-attr {
     color: black;
+    font-weight: 800;
   }
   
   .hljs-symbol,
   .hljs-bullet,
   .hljs-link {
     color: black;
+    font-weight: 800;
   }
   
   
@@ -60,6 +67,6 @@
   }
   
   .hljs-strong {
-    font-weight: bold;
+    font-weight: 800;
   }
   

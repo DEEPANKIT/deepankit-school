@@ -3,7 +3,7 @@ import java.io.*;
 class BracketVerification {
     private char a[];
     private static int tos;
-
+// function to create a character array 
     public BracketVerification(int size) {
         a = new char[size];
         tos = -1;
