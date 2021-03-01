@@ -8,11 +8,11 @@ class SudokuCheck {
         String ar;
         int[][] arr = new int[9][9];
         int x, y, z, w;
-        Scanner sc;
+        Scanner sc =new Scanner(System.in);
         for (x = 0; x < 9; x++) {
             ar = z1.readLine();
             sc = new Scanner(ar);
-            sc.useDelimiter(",");
+            sc.useDelimiter(" ");
             for (y = 0; y < 9; y++)
                 arr[x][y] = sc.nextInt();
         }

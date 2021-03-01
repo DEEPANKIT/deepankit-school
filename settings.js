@@ -7,7 +7,7 @@ exports.ques = {
     "To Identify the area damaged by the bomb dropped on a particular type of field. The bomb damages all the land connected with each other and has no effect on water",
   BracketVerification: "Program to check if combination expression of brackets entered by the user is valid or not according to priority order",
   complex_substring:
-    "Program to find to fin out the shortest possible substring from a given string. Both the strings are give by the user and the substring must contain all the characters of the smallest string given in any order",
+    "Program to find to find out the shortest possible substring from a given string. Both the strings are give by the user and the substring must contain all the characters of the smallest string given in any order",
   infixtopostfix: "Program to convert INFIX EXPRESSION to POSTFIX EXPRESSION",
   Similarity: "",
   Stack: "Program to demonstrate stack data structure",
@@ -18,4 +18,5 @@ exports.ques = {
   Queue: "To demonstrate circular queue using Queue data structure with push peek and pop operations",
   runaround:"To find if a number given by the user is a RUNAROUND NUMBER or Not",
   file_handling:"Write a program to give the User options to ADD,EDIT or DELETE records of a student which include Roll no. , Name , Class and Marks in 3 subjects and save the details to a file named student.dat ",
-  };
+  SudokuCheck:"To Check if a given solution of a SUDOKU is VALID OR NOT",  
+};
