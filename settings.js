@@ -19,4 +19,9 @@ exports.ques = {
   runaround:"To find if a number given by the user is a RUNAROUND NUMBER or Not",
   file_handling:"Write a program to give the User options to ADD,EDIT or DELETE records of a student which include Roll no. , Name , Class and Marks in 3 subjects and save the details to a file named student.dat ",
   SudokuCheck:"To Check if a given solution of a SUDOKU is VALID OR NOT",  
+  number_system:"Program to carry out various conversions and arithmatic operations on different number systems",
+  Encrypt:"In an encryption scheme wach lowercase or uppercase letter is shifted by 13 positions. So the letter 'a' is replaced by 'n' and the 'n' is replaced by 'a'. For example the string 'You are here' is encoded as 'lbh ner urer'. ",
+  work_time:
+  "A program to calculate the work time of a PC from the login time and the logout time",
+  farm_land:"Program to find out if all the lamps placed by a Farmer in a farm are useful or not. Each Lamps illuminates all its surrounding cells. We have to find out coordinates of all useless lamps",
 };

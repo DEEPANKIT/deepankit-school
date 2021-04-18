@@ -1,97 +1,96 @@
-import java.util.*;
-class Queue
-{
-private int a[];
-private int f,r;
-public Queue(int size)
-{
-a=new int[size];
-f=r=-1;
-}
-public void push(int p)
-{
-if(r==a.length-1 && f!=0)
-{
-r=0;
-a[r]=p;
-System.out.println("Value pushed="+p);
-}
-else
-{
-if(f==(r%a.length)+1 || r==a.length-1)
-System.out.println("Overflow");
-else
-{
-if(f==-1)
-f=0;
-r=(r%a.length)+1;
-a[r]=p;
-System.out.println("Value pushed="+p);
-}
-}
-}      //end of push
-public int pop()
-{
-if(f==-1 || f==r)
-{
-f=r=-1;
-return -9999;
-}
-else
-{
-f=f%a.length;
-return a[f++];
-}
-}                  //end of pop
-public int peek()
-{
-if(f==-1 || f>r)
-return -9999;
-else
-return a[f];
-}                  //end of peek
-}                   //end of Queue
+import java.io.*;
 
+class Queue {
+    private int a[];
+    private int front, rear;
 
-class circular
-{
-public static void main(String ar[])
-{
-Scanner sc=new Scanner(System.in);
-System.out.println("Enter tolal no. of elements");
-int s=sc.nextInt();
-Queue q=new Queue(s);
-int ch,w;
-do
-{
-System.out.println("1.Push\n2.Pop\n3.Peek\n4.Exit");
-ch=sc.nextInt();
-switch(ch)
-{
-case 1:
-System.out.println("Enter element to be pushed");
-w=sc.nextInt();
-q.push(w);
-break;
-case 2:
-w=q.pop();
-if(w==-9999)
-System.out.println("Underflow");
-else
-System.out.println("Popped value="+w);
-break;
-case 3:
-w=q.peek();
-if(w==-9999)
-System.out.println("Underflow");
-else
-System.out.println("Peeked value="+w);
-break;
-case 4:
-break;
-default:
-System.out.println("Invalid choice");
-}
-}while(ch!=4);
-}
+    public Queue(int size) {
+        a = new int[size];
+        front = rear = -1;
+
+    }
+
+    public void push(int p) {
+        if ((front == 0 && rear == a.length - 1) || (front == rear + 1)) {
+            System.out.println("OVERFLOW");
+        } else {
+            if (front == -1)
+                front = 0;
+            rear = (rear + 1) % a.length;
+            a[rear] = p;
+            System.out.println("PUSHED " + p);
+        }
+    }
+
+    public int pop() {
+        int p;
+        if (front == -1) {
+            return -9999;
+        } else {
+            p = a[front];
+            if (front == rear) {
+                front = -1;
+                rear = -1;
+            } else {
+                front = (front + 1) % a.length;
+            }
+            return p;
+        }
+    }
+
+    public int peek() {
+        int p;
+        if (front == -1) {
+
+            return -9999;
+        } else {
+
+            return a[front];
+        }
+
+    }
+
+    public static void main(String ar[]) throws Exception {
+        DataInputStream z = new DataInputStream(System.in);
+
+        Queue s1 = new Queue(5);
+        int ch, w;
+
+        do {
+            System.out.println("1.Push \n2.Pop \n3.Peek \n4.Exit");
+            ch = Integer.parseInt(z.readLine());
+
+            switch (ch) {
+            case 1:
+
+                System.out.println("Enter element to be pushed");
+                w = Integer.parseInt(z.readLine());
+                s1.push(w);
+                break;
+
+            case 2:
+                w = s1.pop();
+                if (w == -9999)
+                    System.out.println("UNDERFLOW");
+                else
+                    System.out.println("Poped Value is:  " + w);
+                break;
+
+            case 3:
+                w = s1.peek();
+                if (w == -9999)
+                    System.out.println("UNDERFLOW");
+                else
+                    System.out.println("Peeked Value is:  " + w);
+                break;
+            case 4:
+                break;
+            default:
+                System.out.println("Invalid Choice");
+
+            }
+
+        } while (ch != 4);
+
+    }
 }

@@ -1,727 +1,348 @@
 import java.util.*;
-
-public class number_system {
-    public static void main(String ab[])
-	{
-		Scanner sc=new Scanner(System.in);
-		int ch,b,d=1,m,s=0,a=0,u=1,z=1,k,s1=0,n,e,l,j,len,x,bno,r,cal=0,octalno,inter=0,no=0,t,lp,oc,hx,dn,l1,carry=0,qt,inter1,ex,n1,n2,i,lb,lb1,lc,lan,w,w2,ws,si,lss,ld,lsd,y,lcar,sd=0,d1=1,lrs,lrsp,lps,lcs,lpf;
-		double dno=0.0;
-		char ch1,g,q,c,c1,ch2,ci1,ci2,ch3,ch4, bg,bg2,sch;
-		String s2="",s3="",hexno,bsno,bsno1,intr="",add="",octalnos,octalnos1,b1,b2,ans="",an="",bns="",anss="",ss="",ansf="",carrys="",car="",ansd="",anf="",asn="",rp1="1",rp="",rsf="",rpss="",rspf="",rfp="",rf="",pp="",pf="",aps="",rss="",rcf="",rc1="1",rc="";
-		do
-		{
-			System.out.println("CHOICES");
-            System.out.println("1- CONVERSIONS");
-            System.out.println("2- ADDITION");
-            System.out.println("3- SUBTRACTION");
-            System.out.println("4- MULTIPLICATION");
-            System.out.println("5- EXIT");
-            ch=sc.nextInt();
-            switch(ch)
+class number_system 
+{    
+    public static void main(String nh[])
+    {
+        int ch2=0,ch1=0;
+        int i=0;
+        String input_number="",output_number="",nitm="",input_number2="";
+        Scanner s=new Scanner(System.in);
+        do
+        {
+            System.out.println("Enter task to be performed\n1:Conversion,\n2:Addition,\n3:Multiplication,\n4:Subtraction,\n5:Exit");
+            ch1=s.nextInt();
+            switch(ch1)
             {
-            	case 1:
-                System.out.println("ENTER CHOICE OF CONVERSION");
-                System.out.println("A- DECIMAL TO BINARY");
-                System.out.println("B- DECIMAL TO OCTAL");
-                System.out.println("C- DECIMAL TO HEXADECIMAL");
-                System.out.println("D- BINARY TO DECIMAL");
-                System.out.println("E- OCTAL TO DECIMAL");
-                System.out.println("F- HEXADECIMAL TO DECIMAL");
-                System.out.println("G- OCTAL TO HEXADECIMAL");
-                System.out.println("H- HEXADECIMAL TO OCTAL");
-                ch1=sc.next().charAt(0);
-                switch(ch1)
-                {
-                	case 'A':
-                	System.out.println("ENTER A DECIMAL NO.");
-					n=sc.nextInt();
-                    b=n;
-                    while(b!=0)
+                case 1:
+                    do
                     {
-                        m=b%2;
-                        b=b/2;
-                        s=s+(d*m);
-                        d=d*10;
-                    }
-                    System.out.println("BINARY NO.="+s);
-                    break;
-                    case 'B':
-                    System.out.println("ENTER A DECIMAL NO.");
-					n=sc.nextInt();
-                    a=n;
-                    while(a!=0)
-                    {
-                        k=a%8;
-                        a=a/8;
-                        s1=s1+(z*k);
-                        z=z*10;
-                    }
-                    System.out.println("OCTAL NO.="+s1);
-                    break;
-                    case 'C':
-                    System.out.println("ENTER A DECIMAL NO.");
-					n=sc.nextInt();
-                    e=n;
-                    while(e!=0)
-                    {
-                        l=e%16;
-                        e=e/16;
-                        if(l==10||l==11||l==12||l==13||l==14||l==15)
+                        System.out.println("Enter conversion type:\n1:Decimal to binary,\n2:Decimal to octal,\n3:Decimal to hexadecimal,\n4:Binary to decimal,\n5:Hexadecimal to decimal,\n6:Octal to decimal,\n7:Octal to hexadecimal,\n8:Hexadecimal to octal,\n9:Return to previous menu.");
+                        ch2=s.nextInt();
+                        switch(ch2)
                         {
-                            j=l+55;
-                            g=(char)j;
-                            s2=s2+g;
-                        }
-                        else
-                        {
-                            String h=Integer.toString(l);
-                            s2=s2+h;
-                        }
-                    }
-                    len=s2.length();
-                    for(x=len-1;x>=0;x--)
+                            case 1:
+                                input_number=input(s);
+								System.out.println(input_number+" = "+decimal_to(input_number,2));
+								break;
+							case 2:
+								input_number=input(s);
+								System.out.println(input_number+" = "+decimal_to(input_number,8));
+								break;                        
+							case 3:
+								input_number=input(s);
+								System.out.println(input_number+" = "+decimal_to(input_number,16));
+								break;
+							case 4:
+								input_number=input(s);
+								System.out.println(input_number+" = "+to_decimal(input_number,2));
+								break;
+							case 5:
+								input_number=input(s);
+								System.out.println(input_number+" = "+to_decimal(input_number,16));
+								break;
+							case 6:
+								input_number=input(s);
+								System.out.println(input_number+" = "+to_decimal(input_number,8));
+								break;
+							case 7:
+								input_number=input(s);
+								System.out.println(input_number+" = "+oct_hex_to_hex_oct(input_number,3));
+								break;                 
+							case 8:
+								input_number=input(s);
+								System.out.println(input_number+" = "+Integer.valueOf(oct_hex_to_hex_oct(input_number,4)));
+						}     //Integer.value of is done to remove any preceding zeroes                                   
+					}
+					while(ch2!=9);
+					break;
+                case 2:
+                    do
                     {
-                        q=s2.charAt(x);
-                        s3=s3+q;
-                    }
-                    System.out.println("HEXADECIMAL NO.="+s3);
-                    break;
-                    case'D':
-                    cal=0;
-                    System.out.println("ENTER A BINARY NO.");
-                    bno=sc.nextInt();
-                    dno=0.0;
-                    while(bno!=0)
-                    {
-                        r=bno%10;
-                        dno=dno+(r*(Math.pow(2,cal)));
-                        bno=bno/10;   
-                        cal=cal+1;
-                    }
-                    dn=(int)dno;
-                    System.out.println("DECIMAL EQUIVALENT="+dn);
-                    break;
-                    case 'E':
-                    cal=0;
-                    dno=0.0;
-                    System.out.println("ENTER OCTAL NO.");
-                    octalno=sc.nextInt();
-                    while(octalno!=0)
-                    {
-                        r=octalno%10;
-                        dno=dno+(r*(Math.pow(8,cal)));
-                        octalno=octalno/10;   
-                        cal=cal+1;
-                    }
-                    dn=(int)dno;
-                    System.out.println("DECIMAL EQUIVALENT="+dn);
-                    break;
-                    case 'F':
-                    l=0;
-                    x=0;
-                    inter=0;
-                    no=0;
-                    cal=0;
-                    dno=0.0;
-                    c='\u0000';
-                    System.out.println("ENTER A HEXADECIMAL NO.");
-                    hexno=sc.next();
-                    l=hexno.length();
-                    for(x=l-1;x>=0;x=x-1)
-                    {
-                        c=hexno.charAt(x);
-                        inter=c;
-                        if(inter>=48 && inter <=57)
-                        {
-                            no=inter-48;
-                            dno=dno+(no*(Math.pow(16,cal)));
-                        }
-                        else if(inter>=65 && inter<=70)
-                        {
-                            no=inter-55;
-                            dno=dno+(no*(Math.pow(16,cal)));
-                        }
-                        cal=cal+1;
-                    }
-                    dn=(int)dno;
-                    System.out.println("DECIMAL EQUIVALENT="+dn);
-                    break;
-                    case 'G':
-                      System.out.println("ENTER AN OCTAL NO.");
-                    int er=Integer.parseInt(sc.next());
-                     int rem1=0,kl=0,ans2=0;
-                     String ans2d="";
-          			ans="";
-          			String ans3="",blah="";
-            		while(er!=0)
-            		{ 
-            			int mj=er%10;
-            			er=er/10;
-             			while(mj!=0)
-            			{ 
-                			rem1=mj%2;
-                     		mj=mj/2;
-                     		ans=rem1+ans;
-              			}
-            		}
-            		int ans1=Integer.parseInt(ans);
-            		while(ans1!=0)
-            		{
-             			int h=ans1%10000;
-             			ans1=ans1/10000;
-              			while(h!=0)
-              			{
-                     		int rem2=(h%10)*(int)Math.pow(2,kl);
-                             ans2=ans2+rem2;
-                     		h=h/10;
-                     		kl++;
-                         }
-                         blah=ans2+"";
-                         if(ans2==10||ans2==11||ans2==12||ans2==13||ans2==14||ans2==15)
-                        {
-                            blah=(char)(ans2+55)+"";
-                        }
-
-             			ans3=blah+ans3;
-             			ans2=0;
-             			kl=0;
-            		}
-		   			System.out.println("HEXADECIMAL NO.="+ans3);
-		    		ans3="";
-                    break;
-                    case'H':
-                    System.out.println("ENTER A HEXADECIMAL NO.");
-                    int rem2,an1;
-                    String hex1;
-					hex1=sc.next();
-					for(x=(hex1.length()-1);x>=0;x--)
-					{
-						c=hex1.charAt(x);
-						if(c>64)
-							y=(c-64)+9;
-						else
-							y=c-48;
-						while(y!=0)
+						System.out.println("Enter addition type:\n1:Binary addition,\n2:Octal addition,\n3:Hexadecimal addition,\n4:Return to previous menu.");
+						ch2=s.nextInt();
+						switch(ch2)
 						{
-
-                            a++;
-
-                            rem1=y%2;
-
-                            y=y/2;
-
-                            ans=rem1+ans;
-
-                        }
-
-                        a=0;
-
+							case 1:
+								input_number=input(s);
+								input_number2=input(s);
+								System.out.println(input_number+" + "+input_number2+" = "+addition(input_number,input_number2,2));
+								break;
+							case 2:
+								input_number=input(s);
+								input_number2=input(s);
+								System.out.println(input_number+" + "+input_number2+" = "+addition(input_number,input_number2,8));
+								break;
+							case 3:
+								input_number=input(s);
+								input_number2=input(s);
+								System.out.println(input_number+" + "+input_number2+" = "+addition(input_number,input_number2,16));
+						}
                     }
-
-                    rem1=0;
-
-                    an1=0;
-
-                    rem2=Integer.parseInt(ans);
-
-                    ans="";
-
-                    while(rem2!=0)
-
+					while(ch2!=4);
+					break;
+                case 3:
+                    do
                     {
-
-                        y=rem2%1000;
-
-                        rem2=rem2/1000;
-
-                        while(y!=0)
-
+                        System.out.println("Enter multiplication type:\n1:Binary multiplication,\n2:Octal multiplication,\n3:Hexadecimal multiplication,\n4:Return to previous menu.");
+                        ch2=s.nextInt();
+                        switch(ch2)
                         {
-
-                            rem1=(y%10)*(int)Math.pow(2,a);
-
-                            an1=an1+rem1;
-
-                            y=y/10;
-
-                            a++;
-
+                            case 1:
+                                input_number=input(s);
+                                input_number2=input(s);
+                                System.out.println(input_number+" * "+input_number2+" = "+multiplication(input_number,input_number2,2));
+                                break;
+                            case 2:
+                                input_number=input(s);
+                                input_number2=input(s);
+                                System.out.println(input_number+" * "+input_number2+" = "+multiplication(input_number,input_number2,8));
+                                break;
+                            case 3:
+                                input_number=input(s);
+                                input_number2=input(s);
+                                System.out.println(input_number+" * "+input_number2+" = "+multiplication(input_number,input_number2,16));
+                                break;
                         }
-
-                        ans=an1+ans;
-
-                        an1=0;
-
-                        a=0;
-
                     }
-
-                    System.out.println("RESULT="+ans);
-                    break;
-				}
-				break;
-				case 2:
-				System.out.println("ENTER CHOICE");
-				System.out.println("A- BINARY ADDITION");
-				System.out.println("B- OCTAL ADDITION");
-				System.out.println("C- HEXADECIMAL ADDITION");
-				ch2=sc.next().charAt(0);
-				switch(ch2)
-				{
-					case 'A':
-					i=0; 
-					carry=0;   
-                  	int sum[]=new int[15];
-                    System.out.println("ENTER 2 BINARY NOS.");
-                    n1=sc.nextInt();
-                    n2=sc.nextInt();       
-                	while(n1!=0 || n2!=0)
-            		{
-            			sum[i++]=((n1%10)+(n2%10)+carry)%2;
-            			carry=((n1%10)+(n2%10)+carry)/2;
-            			n1=n1/10;
-            			n2=n2/10;
-             		}
-                    if(carry !=0)
-           				sum[i++]=carry;
-            		i=i-1;
-              		System.out.print("RESULT=");
-                    while(i>=0)
-                        System.out.print(sum[i--]);
-                    System.out.println();             
-                    break;
-                    case 'B':
-                    i=0;
-                    carry=0;    
-                    int sum2[]=new int[15];
-                    System.out.println("ENTER 2 OCTAL NOS.");
-                    n1=sc.nextInt();
-                    n2=sc.nextInt();       
-                    while(n1!=0 || n2!=0)
-                    {
-                        sum2[i++]=((n1%10)+(n2%10)+carry)%8;
-                        carry=((n1%10)+(n2%10)+carry)/8;
-                        n1=n1/10;
-                        n2=n2/10;
-                    }
-                    if(carry !=0)
-                    sum2[i++]=carry;
-                    i=i-1;
-                    System.out.print("RESULT=");
-                    while(i>=0)
-                    System.out.print(sum2[i--]);
-                    System.out.println();           
-                    break;
-                    case 'C':
-                    System.out.println("ENTER 2 HEXADECIMAL NOS.");
-                   	b1=sc.next();
-                	b2=sc.next();
-                	int lb2;
-                	String bc1="",bc2="",as="";
-                	char le;
-	                lb1=b1.length();
-	                lb2=b2.length();
-	                carry=0;
-	                if(lb1<lb2)
-	                {
-	                	lb=lb2-lb1;
-	                	for(x=0;x<lb;x++)
-	                		bc1="0"+b1;
-	                }
-	                else
-	                	bc1=b1;
-	                if(lb2<lb1)
-	                {
-	                	lb=lb1-lb2;
-	                	for(x=0;x<lb;x++)
-	                		bc2="0"+b2;
-	                }
-	                else
-	                	bc2=b2;
-	                lc=bc1.length();
-	                for(y=0;y<lc;y++)
-	                {
-	                	bg=bc1.charAt(y);
-	                	bg2=bc2.charAt(y);
-	                	w=bg-'0';
-	                	w2=bg2-'0';
-	                	ws=w+w2+carry;
-	                	if(ws>15)
-	                	{
-	                		e=ws;
-                    		while(e!=0)
-                    		{
-                        		l=e%16;
-                        		e=e/16;
-                        		if(l==10||l==11||l==12||l==13||l==14||l==15)
-                        		{
-                            		j=l+55;
-                            		g=(char)j;
-                            		s2=s2+g;
-                        		}
-                        		else
-                        		{
-                            		String h=Integer.toString(l);
-                            		s2=s2+h;
-                        		}
-                    		}
-                    		len=s2.length();
-                    		for(x=len-1;x>=0;x--)
-                    		{
-                        		q=s2.charAt(x);
-                        		s3=s3+q;
-                    		}
-                    		as=as+(s3.charAt(s3.length()-1));
-                    		carry=Integer.parseInt(s3.substring(0,s3.length()-1));
-                    		s2="";
-                    		s3="";
-	                	}
-	                	le='A';
-	                	if(ws<=15 && ws>9)
-	                	{
-	                		for(y=10;y<=15;y++)
-	                		{
-	                			if(ws==y)
-	                				as=as+le;
-	                			else
-	                				le++;
-	                		}
-	                	}
-	                	if(ws<=9)
-	                		as=as+ws;
-					}
-					System.out.println("RESULT="+as);
-					as="";
-                    break;
-				}
-				break;
-				case 3:
-				System.out.println("ENTER CHOICE");
-				System.out.println("A- BINARY SUBTRACTION");
-				System.out.println("B- OCTAL SUBTRACTION");
-				System.out.println("C- HEXADECIMAL SUBTRACTION");
-				System.out.println("D- BINARY SUBTRACTION WITH 1'S COMPLEMENT");
-				System.out.println("E- BINARY SUBTRACTION WITH 2'S COMPLEMENT");
-				ch4=sc.next().charAt(0);
-				switch(ch4)
-				{
-					case 'A':
-					System.out.println("ENTER NOS.");
-            		int numi=Integer.parseInt(sc.next());
-            		int nume=Integer.parseInt(sc.next());
-            		String answ="";                
-            		int aa=0;
-            		int max1,min1,max,min;
-            		max1=Math.max(numi,nume);
-            		min1=Math.min(numi,nume);
-            		max=max1;
-            		min=min1;
-            		while(max1!=0)
-            		{
-                		max1=max1/10;
-                		aa++;
-            		}
-            		int sub1[]=new int[aa];
-            		int sub2[]=new int[aa];
-            		for(int xl=sub1.length-1;xl>=0;xl--)
-            		{
-                		sub1[xl]=max%10;
-                		max=max/10;
-            		}
-            		for(int xd=sub2.length-1;xd>=0;xd--)
-            		{
-                		sub2[xd]=min%10;
-                		min=min/10;
-            		}
-            		int ys=1;
-            		int ans1[]=new int[sub1.length];
-            		for(int xx=0;xx<sub1.length;xx++)
-            		{
-                		if(sub1[sub1.length-ys]<sub2[sub2.length-ys])
-                		{
-                    		for(int ii=sub1.length-ys-1;ii>=0;ii--)
-                    		{
-                        		if(sub1[ii]!=0)
-                        		{
-                            		sub1[ii]=sub1[ii]-1;
-                            		for(int ja=sub1.length-ys-1;ja>ii;ja--)
-                            			sub1[ja]=sub1[ja]+1;
-                            		sub1[sub1.length-ys]=sub1[sub1.length-ys]+2;
-                            		break;
-                        		}
-                    		}
-                		}
-                		ans1[sub1.length-ys]=sub1[sub1.length-ys]-sub2[sub2.length-ys];
-                		ys++;
-            		}
-            		for(int xs=ans1.length-1;xs>=0;xs--)
-            		{
-            			answ=ans1[xs]+answ;
-            		}
-            		if(numi<nume)
-            		{
-            			answ="-"+answ;
-        			}
-            		System.out.println("RESULT="+answ);
+                    while(ch2!=4);
 					break;
-					case 'B':
-					System.out.println("ENTER NOS.");
-                    int numi1=Integer.parseInt(sc.next());
-            		int nume1=Integer.parseInt(sc.next());           
-            		String ansp="";      
-            		int al1=0;
-            		int max2,min2,max11,min11;
-            		max2=Math.max(numi1,nume1);
-            		min2=Math.min(numi1,nume1);
-            		max11=max2;
-            		min11=min2;
-            		while(max2!=0)
-            		{
-                		max2=max2/10;
-                		al1++;
-            		}
-            		int subx1[]=new int[al1];
-            		int suby2[]=new int[al1];
-            		for(int xy=subx1.length-1;xy>=0;xy--)
-            		{
-                		subx1[xy]=max11%10;
-                		max11=max11/10;
-            		}
-            		for(int xt=suby2.length-1;xt>=0;xt--)
-            		{
-                		suby2[xt]=min11%10;
-                		min11=min11/10;
-            		}
-            		int yq=1;
-            		int anss1[]=new int[subx1.length];
-            		for(int xv=0;xv<subx1.length;xv++)
-            		{
-						if(subx1[subx1.length-yq]<suby2[suby2.length-yq])
-                		{
-                    		for(int im=subx1.length-yq-1;im>=0;im--)
-                    		{
-                        		if(subx1[im]!=0)
-                        		{
-                            		subx1[im]=subx1[im]-1;
-                            		for(int ji=subx1.length-yq-1;ji>im;ji--)
-                            			subx1[ji]=subx1[ji]+1;
-                            		subx1[subx1.length-yq]=subx1[subx1.length-yq]+2;
-                            		break;
-                        		}
-                    		}
-                		}
-                		anss1[subx1.length-yq]=subx1[subx1.length-yq]-suby2[suby2.length-yq];
-                		yq++;
-            		}
-            		for(int xj=anss1.length-1;xj>=0;xj--)
-            		{
-            			ansp=anss1[xj]+ansp;
-            		}
-            		if(numi1<nume1)
-            			ansp="-"+ansp;
-            		System.out.println("RESULT="+ansp);
-					break;
-					case 'C':
-					System.out.println("ENTER NOS.");
-   					int numi2=Integer.parseInt(sc.next());
-   					int nume2=Integer.parseInt(sc.next());
-       				String answa="";                
-            		int ae=0;
-            		int max1a,min1a,maxa,mina;
-            		max1a=Math.max(numi2,nume2);
-            		min1a=Math.min(numi2,nume2);
-            		maxa=max1a;
-            		mina=min1a;
-            		while(max1a!=0)
-            		{
-                		max1a=max1a/10;
-                		ae++;
-            		}
-            		int sub1a[]=new int[ae];
-            		int sub2a[]=new int[ae];
-            		for(int xl1=sub1a.length-1;xl1>=0;xl1--)
-            		{
-                		sub1a[xl1]=maxa%10;
-                		maxa=maxa/10;
-            		}
-            		for(int xd1=sub2a.length-1;xd1>=0;xd1--)
-            		{
-                		sub2a[xd1]=mina%10;
-                		mina=mina/10;
-            		}
-            		int ysa=1;
-            		int anssa[]=new int[sub1a.length];
-            		for(int xxa=0;xxa<sub1a.length;xxa++)
-            		{
-						if(sub1a[sub1a.length-ysa]<sub2a[sub2a.length-ysa])
-                		{
-                    		for(int ii1=sub1a.length-ysa-1;ii1>=0;ii1--)
-                    		{
-                        		if(sub1a[ii1]!=0)
-                        		{
-                            		sub1a[ii1]=sub1a[ii1]-1;
-                            		for(int ja1=sub1a.length-ysa-1;ja1>ii1;ja1--)
-                            			sub1a[ja1]=sub1a[ja1]+15;
-                            		sub1a[sub1a.length-ysa]=sub1a[sub1a.length-ysa]+16;
-                            		break;
-                        		}
-                    		}
-                		}
-                		anssa[sub1a.length-ysa]=sub1a[sub1a.length-ysa]-sub2a[sub2a.length-ysa];
-                		ysa++;
-            		}
-            		for(int xs1=anssa.length-1;xs1>=0;xs1--)
-            		{
-            			answa=anssa[xs1]+answa;
-            		}
-            		if(numi2<nume2)
-            			answa="-"+answa;
-            		System.out.println("RESULT="+answa);
-					break;
-					case 'D':
-					System.out.println("ENTER NOS.");
-					sd=0;
-					d1=1;
-					s=0;
-					d=1;
-					carry=0;
-					bsno=sc.next();
-					bsno1=sc.next();
-					lb=bsno1.length();
-					lb1=bsno.length();
-					 if(lb<lb1)
-	                {
-	                	lc=lb1-lb;
-	                	for(x=0;x<lc;x++)
-	                	{
-	                		an="0"+bsno1;
-	                		bsno1=an;
-	                	}
-	                }
-	                else
-	                	an=ans;
-	                if(lb1<lb)
-	                {
-	                	lc=lb-lb1;
-	                	for(x=0;x<lb;x++)
-	                	{
-	                		bns="0"+bsno;
-	                		bsno=bns;
-	                	}
-	                }
-	                else
-	                	bns=bsno;
-	                lan=an.length();
-	                for(x=0;x<lan;x++)
+			    case 4:
+				    do
 					{
-						if((bsno1.charAt(x))=='1')
-							ans=ans+'0';
-						else
-							ans=ans+'1';
+						System.out.println("Enter subtraction type:\n1:Binary subtraction,\n2:Octal subtraction,\n3:Hexadecimal subtraction,\n4:Return to previous menu.");
+						ch2=s.nextInt();
+						switch(ch2)
+						{
+							case 1:
+							    input_number=input(s);
+								input_number2=input(s);
+								System.out.println(input_number+" - "+input_number2+" = "+subtraction(input_number,input_number2,2));
+								break;
+							case 2:
+							    input_number=input(s);
+								input_number2=input(s);
+								System.out.println(input_number+" - "+input_number2+" = "+subtraction(input_number,input_number2,8));
+								break;
+							case 3:
+							    input_number=input(s);
+								input_number2=input(s);
+								System.out.println(input_number+" - "+input_number2+" = "+subtraction(input_number,input_number2,16));
+						}
 					}
-	                lp=bns.length();
-	                for(y=lp-1;y>=0;y--)
-	                {
-	                	bg=bns.charAt(y);
-	                	bg2=ans.charAt(y);
-	                	w=bg-'0';
-	                	w2=bg2-'0';
-	                	ws=w+w2+carry;
-	                	if(ws>1)
-	                	{
-	                		b=ws;
-                    		while(b!=0)
-                    		{
-                        		m=b%2;
-                        		b=b/2;
-                        		s=s+(d*m);
-                        		d=d*10;
-                    		}
-                    		ss=Integer.toString(s);
-                    		sch=ss.charAt(0);
-                    		si=sch-'0';
-                    		anss=anss+(ss.charAt(ss.length()-1));
-                    		carry=si;
-	                	}
-	                	else
-	                	{
-	                		carry=0;
-	                		anss=anss+ws;
-	                	}
-	                }
-	                lss=anss.length();
-	                for(x=lss-1;x>=0;x--)
-	                {
-	                	ansf=ansf+anss.charAt(x);
-	                }
-	                carrys=carrys+carry;
-	                lcar=carrys.length();
-	                if(lss!=lcar)
-	                {
-	                	ld=lss-lcar;
-	                	for(x=0;x<ld;x++)
-	                	{
-	                		car='0'+carrys;
-	                		carrys=car;
-	                	}
-	                }
-	                carry=0;
-	                for(y=lss-1;y>=0;y--)
-	                {
-	                	bg=ansf.charAt(y);
-	                	bg2=carrys.charAt(y);
-	                	w=bg-'0';
-	                	w2=bg2-'0';
-	                	ws=w+w2+carry;
-	                	if(ws>1)
-	                	{
-	                		b=ws;
-                    		while(b!=0)
-                    		{
-                        		m=b%2;
-                        		b=b/2;
-                        		sd=sd+(d1*m);
-                        		d1=d1*10;
-                    		}
-                    		ss=Integer.toString(sd);
-                    		sch=ss.charAt(0);
-                    		si=sch-'0';
-                    		ansd=ansd+(ss.charAt(ss.length()-1));
-                    		carry=si;
-	                	}
-	                	else
-	                	{
-	                		carry=0;
-	                		ansd=ansd+ws;
-	                	}
-	                }
-	                lsd=ansd.length();
-	                for(x=lsd-1;x>=0;x--)
-	                {
-	                	anf=anf+ansd.charAt(x);
-	                }
-	                if(carry==1)
-	                	asn=carry+anf;
-	                else
-	                	asn=anf;
-	                System.out.println("RESULT="+asn);
-					break;
-					case 'E':
-					break;
-				}
-				break;
-				case 4:
-				System.out.println("ENTER CHOICE");
-				System.out.println("A- BINARY MULTIPLICATION");
-				System.out.println("B- OCTAL MULTIPLICATION");
-				System.out.println("C- DECIMAL MULTIPLICATION");
-				ch3=sc.next().charAt(0);
-				switch(ch3)
-				{
-					case 'A':
-					break;
-				}
+				while(ch2!=4);
 			}
-		}while(ch!=5);
+		}
+	while(ch1!=5);
+    }
+     //Function to input numbers
+    public static String input(Scanner s)                       
+    {
+        System.out.println("Enter number");
+        String input_number=s.next();
+        return input_number;
+    } 
+    //Function to convert decimal numbers to binary/octal/hex.
+    public static String decimal_to(String input_number,int b)   
+    {
+        String nitm="",output_number="";
+        int input_number2=Integer.valueOf(input_number);
+        if(input_number2!=0)   
+        //If input is zero then without this if condition no output will be there.                                  
+        {
+        while(input_number2!=0)
+        {
+            if(input_number2%b>9)
+                nitm=nitm+(char)(input_number2%b+55);
+            else
+                nitm+=String.valueOf(input_number2%b);
+            input_number2/=b;
+        }
+        for(int i=nitm.length()-1;i>=0;i=i-1)
+            output_number+=String.valueOf(nitm.charAt(i));
+        return output_number;
+        }
+        else
+            return input_number;
+        
+    }
+     //Function to convert binary/octal/hex to decimal.
+    public static int to_decimal(String input_number,int b)    
+    {
+        int a=0,output_number1=0;
+        for(int i=input_number.length()-1;i>=0;i=i-1)
+        {
+            //For hexadecimal digits
+            if(Character.isDigit(input_number.charAt(i))==false) 
+                output_number1+=(input_number.charAt(i)-'0'-7)*(int)(Math.pow(b,a));
+            else
+                output_number1+=(input_number.charAt(i)-'0')*(int)(Math.pow(b,a));
+            a=a+1;
+        }
+        return output_number1;
+    }
+    //Function to convert oct/hex to hex/oct.
+    public static String oct_hex_to_hex_oct(String input_number,int b)
+    {
+        String o="",nitm="",output_number="",o1="";
+        int nitm1=0,i,c;
+        for(i=0;i<input_number.length();i=i+1)
+        {
+            //First number is converted to binary
+            if(Character.isLetter(input_number.charAt(i))==true)
+                nitm=decimal_to(String.valueOf(input_number.charAt(i)-'0'-7),2);
+            else
+                nitm=decimal_to(String.valueOf(input_number.charAt(i)),2);
+            c=b-nitm.length();
+            for(int j=1;j<=c;j=j+1)
+                nitm="0"+nitm;
+            output_number+=nitm;
+        }
+        output_number+=" ";
+        if(b==3)
+            b=4;
+        else
+            b=3;
+            //Then binary number is converted to required format.
+        for(i=output_number.length()-1;i>0;i=i-b)              
+        {
+            if(i-b<0)
+                nitm1=to_decimal(output_number.substring(0,i),2);
+            else
+                nitm1=to_decimal(output_number.substring(i-b,i),2);
+            if(nitm1>9)
+                o=o+String.valueOf((char)(nitm1+'0'+7));
+            else
+                o=o+String.valueOf(nitm1);
+        }
+        for(i=o.length()-1;i>=0;i=i-1)
+            o1=o1+o.charAt(i);
+        return o1;
+    }
+    //Function to add two numbers of same format
+    public static String addition(String input_number,String input_number2,int b)
+    {
+        int i,a,e,c=0,j;
+        String d,nitm="",output_number="",f="";
+        if(input_number.length()>input_number2.length())
+        {   j=input_number.length()-input_number2.length();
+            for(i=1;i<=j;i=i+1)
+                input_number2="0"+input_number2;
+        }
+        else
+        {   j=input_number2.length()-input_number.length();
+            for(i=1;i<=j;i=i+1)
+                input_number="0"+input_number;
+        }
+        for(i=input_number.length()-1;i>=0;i=i-1)
+        {
+            a=input_number.charAt(i)-'0';
+            //For conversion of hexadecimal letters to decimal digits
+            if(a>=('A'-'0'))                                 
+                a=a-7;
+            e=input_number2.charAt(i)-'0';
+            if(e>=('A'-'0'))
+                e=e-7;
+            d=decimal_to(String.valueOf(a+e+c),b);
+            nitm=nitm+d.charAt(d.length()-1);
+            if(d.length()==1)
+                d="0";
+            c=d.charAt(0)-'0';
+        }
+        for(i=nitm.length()-1;i>=0;i=i-1)
+            output_number+=nitm.charAt(i);
+             //Inserting the carry at the end
+        if(c!=0)
+        f=String.valueOf(c)+output_number;                  
+        else
+        f=output_number;
+        return f;
+    }
+    //Multiplication of two numbers
+    public static String multiplication(String input_number,String input_number2,int b) 
+    {
+        int i,j,a,b1=0,c=0,d;
+        //Array to store the product of 1st digit of first no. and the 2nd no.
+        String d2[]=new String[input_number.length()];  
+         //Array to add the X while multiplying     
+        String d3[]=new String[input_number.length()];      
+        String d1;
+        for(i=input_number.length()-1;i>=0;i=i-1)
+        {//Digit of first number
+            a=Integer.valueOf(input_number.charAt(i))-'0';   
+            if(a>9)
+                a=a-7;
+            d2[i]="";
+            c=0;
+            for(j=input_number2.length()-1;j>=0;j=j-1)
+            {//Digit of second number.
+                b1=Integer.valueOf(input_number2.charAt(j))-'0'; 
+                if(b1>9)
+                    b1=b1-7;
+                     //Multiplying the numbers and adding the carry 
+                d=(a*b1)+c;                                   
+                c=0;
+                d1=decimal_to(String.valueOf(d),b);
+                d2[i]=d2[i]+d1.charAt(d1.length()-1);
+                   //Determining the carry
+                if(d1.length()!=1)
+                    if(d1.charAt(0)-'0'>9)
+                        c=d1.charAt(0)-'0'-7;             
+                    else
+                        c=d1.charAt(0)-'0';
+            }
+            d3[i]="";
+              //Adding the carry at the end
+            for(j=d2[i].length()-1;j>=0;j=j-1)
+                d3[i]=d3[i]+d2[i].charAt(j);
+            if(c!=0)
+                d3[i]=String.valueOf(c)+d3[i];            
+        }
+           //Concatenating 0 to represent x in a multiplication
+        for(i=0;i<input_number.length();i=i+1)
+            for(j=0;j<input_number.length()-1-i;j=j+1)   
+                d3[i]=d3[i]+"0";
+         //Adding the numbers two at a time using the addition function
+        for(i=0;i<input_number.length()-1;i=i+1)           
+        d3[i+1]=addition(d3[i],d3[i+1],b);
+        return d3[input_number.length()-1];
+    }
+    //to find 1's complement
+    public static String complement(String input_number,int b)  
+    {
+        int i,a,nitm;
+        String output_number="";
+            for(i=0;i<input_number.length();i=i+1)
+			{
+				a=input_number.charAt(i)-'0';
+                  //converting haxadecimal letters to thier digit equivalent
+				if(a>=('A'-'0'))                          
+					a=a-7;
+				nitm=(b-1)-a;
+                 //converting digits to their hexadecmal letter equivalent
+				if(nitm>=10)
+					output_number=output_number+(char)('A'+nitm-10); 
+				else
+					output_number=output_number+nitm;
+			}
+			return output_number;
+	}
+	public static String subtraction(String input_number1,String input_number2,int b)
+	{
+		int i,c;
+		String output_number="",complement_2,nitm;
+		c=Math.max(input_number1.length(),input_number2.length());
+        //making length of both numbers same by concatenating 0
+		for(i=1;i<=c-input_number2.length();i++)        
+			input_number2="0"+input_number2;
+		for(i=1;i<c-input_number1.length();i++)
+			input_number1="0"+input_number1;
+		complement_2=complement(input_number2,b);
+		nitm=addition(input_number1,complement_2,b);
+         //checking for carry after addition in step1
+		if(nitm.length()>c)                           
+			output_number=addition(String.valueOf(nitm.charAt(0)),nitm.substring(1),b);
+		else
+			output_number="-"+complement(nitm,b);
+		return output_number;
 	}
 }
