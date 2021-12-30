@@ -1,74 +1,42 @@
 import java.util.*;
-class work_time {
-    public static void main(String at[]) {
-        Scanner sc = new Scanner(System.in);
 
-        String tt1, tt2, hh1, hh2, mm1, mm2, ss1, ss2;
-        
-        int h1, h2, m1, m2, s1, s2, c1, c2, cc1, cc2, h = 0, m = 0, s = 0, hours = 0, min = 0, sec = 0;
-
-
-        System.out.println("enter login time in 24 hrs format");
-
-        tt1 = sc.nextLine();
-
-        c1 = tt1.indexOf(":");
-        hh1 = tt1.substring(0, c1);
-        h1 = Integer.parseInt(hh1);
-        c2 = tt1.lastIndexOf(":");
-        mm1 = tt1.substring((c1 + 1), c2);
-
-
-        m1 = Integer.parseInt(mm1);
-
-
-        ss1 = tt1.substring((c2 + 1), (tt1.length()));
-
-        s1 = Integer.parseInt(ss1);
-
-
-
-        System.out.println("enter logout time in 24 hrs format");
-        tt2 = sc.nextLine();
-
-        cc1 = tt2.indexOf(":");
-
-        hh2 = tt2.substring(0, cc1);
-
-        h2 = Integer.parseInt(hh2);
-        cc2 = tt2.lastIndexOf(":");
-        mm2 = tt2.substring((cc1 + 1), cc2);
-        m2 = Integer.parseInt(mm2);
-        ss2 = tt2.substring((cc2 + 1), (tt2.length()));
-        s2 = Integer.parseInt(ss2);
-
-        
-        if (h1 > h2) {
-            h = 23 - h1;
-            m = 59 - m1;
-            s = 60 - s1;
-            hours = h + h2;
-            min = m + m2;
-            sec = s + s2;
-            System.out.println("work time-" + hours + ":" + min + ":" + sec);
-        } else {
-            if (s1 > s2) {
-                m2 = m2 - 1;
-                s2 = s2 + 60;
-                s = s2 - s1;
-            } else {
-                s = s2 - s1;
-            }
-            if (m1 > m2) {
-                h2 = h2 - 1;
-                m2 = m2 + 60;
-                m = m2 - m1;
-            } else {
-                m = m2 - m1;
-            }
-            h = h2 - h1;
-            System.out.println("work time-" + h + ":" + m + ":" + s);
-        }
-
-    }
+class Time {
+  public static void main(String at[]) {
+    Scanner sc = new Scanner(System.in); // creating an object of the scanner class
+    System.out.print("Enter first time  = ");
+    String a = sc.nextLine(); // inputting the first time
+    System.out.print("Enter second time = ");
+    String b = sc.nextLine(); // inputting the second time
+    String k1[] = a.split(":");
+    String k2[] = b.split(":");
+    int sec1 = Integer.parseInt(k1[0]) * 3600 + Integer.parseInt(k1[1]) * 60 + Integer.parseInt(k1[2]); // converting
+                                                                                                        // the 1st time
+                                                                                                        // into seconds
+    int sec2 = Integer.parseInt(k2[0]) * 3600 + Integer.parseInt(k2[1]) * 60 + Integer.parseInt(k2[2]); // converting
+                                                                                                        // the 2nd time
+                                                                                                        // into seconds
+    int sec;
+    if (sec2 > sec1) // checking if the 2nd time is greater or not
+      sec = sec2 - sec1; // calculating the time diff in seconds
+    else
+      sec = 3600 * 24 + sec2 - sec1;
+    int hrs, min, sec3;
+    hrs = sec / 3600;
+    min = (sec % 3600) / 60;
+    sec3 = sec % 60;
+    System.out.println();
+    System.out.print("Total time difference = "); // from here the printing the time difference takes place
+    if ((hrs + "").length() != 2)
+      System.out.print("0" + hrs + ":");
+    else
+      System.out.print(hrs + ":");
+    if ((min + "").length() != 2)
+      System.out.print("0" + min + ":");
+    else
+      System.out.print(min + ":");
+    if ((sec3 + "").length() != 2)
+      System.out.print("0" + sec3);
+    else
+      System.out.print(sec3);
+  }
 }

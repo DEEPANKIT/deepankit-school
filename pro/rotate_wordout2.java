@@ -1,0 +1,3 @@
+same
+mase
+NOT POSSIBLE
